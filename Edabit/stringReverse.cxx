@@ -7,22 +7,49 @@
 
 #include <iostream>
 
-void reverse(const char * s)
+char* reverse(const char* s)
 {
-    //std::cout << "&s = " << &s << ", *s = " << *s << std::endl;
+    int len = 0;
 
+    while (*s)
+    {
+        std::cout << "s[" << len << "]=" <<s[len] << std::endl;
+        std::cout << "s=" << s << ", " << *s << std::endl;
+        len++;
+        s++;
+    }
+
+    std::cout << std::endl;
+    std::cout << "string length = " << len << std::endl;
+
+    char* result = new char[len];
+
+    int i = 0;
+    for (i = 0; i <= len; ++i)
+    {
+        *result = *s;
+        result++;
+        std::cout << result << std::endl;
+        s--;
+    }
+
+       
+    return result;
+
+    /*
     if (*s)
     {
         reverse(s+1);
         std::cout << *s; 
     }
+    */
 }
 
 int main(int argc, char ** argv)
 {
-    std::cout << "Hello!" << " --->>> "; 
-    reverse("Hello!");
-    std::cout << std::endl;
+    //char c[] = {"Hello"};
+
+    std::cout << reverse("Hello") << std::endl;
 
     return 0;
 }
