@@ -9,40 +9,35 @@
 
 char* reverse(const char* s)
 {
+    // Calculate the number of elements in string
     int len = 0;
-
-    while (*s)
+    while (s[len])
     {
-        std::cout << "s[" << len << "]=" <<s[len] << std::endl;
-        std::cout << "s=" << s << ", " << *s << std::endl;
         len++;
-        s++;
     }
 
-    std::cout << std::endl;
-    std::cout << "string length = " << len << std::endl;
+    // Create memory for a new string
+    char * result = new char[len + 1];
 
-    char* result = new char[len];
-
+    // Copy elements from the initial string to a new string in reverse order
     int i = 0;
-    for (i = 0; i <= len; ++i)
+    for (i = 0; i < len; ++i)
     {
-        *result = *s;
-        result++;
-        std::cout << result << std::endl;
-        s--;
+        result[len-1-i] = s[i];
     }
-
-       
+    // Assign NULL to the last element in the new string
+    result[len] = '\0';
+      
     return result;
+}
 
-    /*
+void reverse2(const char* s)
+{
     if (*s)
     {
-        reverse(s+1);
+        reverse2(s+1);
         std::cout << *s; 
     }
-    */
 }
 
 int main(int argc, char ** argv)
@@ -50,6 +45,12 @@ int main(int argc, char ** argv)
     //char c[] = {"Hello"};
 
     std::cout << reverse("Hello") << std::endl;
+    std::cout << reverse("Think different.") << std::endl;
+    std::cout << reverse("It doesnt make sense to hire smart people and tell them what to do; we hire smart people so they can tell us what to do.") << std::endl;
+
+    // Alternative function
+    reverse2("Hello");
+    std::cout << std::endl;
 
     return 0;
 }
