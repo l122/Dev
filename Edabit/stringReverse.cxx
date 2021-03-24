@@ -1,13 +1,13 @@
 // Source https://edabit.com/challenge/gYxDahmv8CbWmiThc
 // Create a function that takes a string as its argument and returns the string in reversed order.
-// Examples: 
+// Examples:
 // reverse("Hello World") ➞ "dlroW olleH"
 // reverse("The quick brown fox.") ➞ ".xof nworb kciuq ehT"
 // reverse("Edabit is really helpful!") ➞ "!lufpleh yllaer si tibadE"
 
 #include <iostream>
 
-char* reverse(const char* s)
+char *reverse(const char *s)
 {
     // Calculate the number of elements in string
     int len = 0;
@@ -17,36 +17,37 @@ char* reverse(const char* s)
     }
 
     // Create memory for a new string
-    char * result = new char[len + 1];
+    char *result = new char[len + 1];
 
     // Copy elements from the initial string to a new string in reverse order
     int i = 0;
     for (i = 0; i < len; ++i)
     {
-        result[len-1-i] = s[i];
+        result[len - 1 - i] = s[i];
     }
     // Assign NULL to the last element in the new string
     result[len] = '\0';
-      
+
     return result;
 }
 
-void reverse2(const char* s)
+void reverse2(const char *s)
 {
     if (*s)
     {
-        reverse2(s+1);
-        std::cout << *s; 
+        reverse2(s + 1);
+        std::cout << *s;
     }
 }
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
     //char c[] = {"Hello"};
 
     std::cout << reverse("Hello") << std::endl;
     std::cout << reverse("Think different.") << std::endl;
-    std::cout << reverse("It doesnt make sense to hire smart people and tell them what to do; we hire smart people so they can tell us what to do.") << std::endl;
+    std::cout << reverse("It doesnt make sense to hire smart people and tell them what to do; we hire smart people so they can tell us what to do.")
+              << std::endl;
 
     // Alternative function
     reverse2("Hello");
